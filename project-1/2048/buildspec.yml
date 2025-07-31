@@ -1,0 +1,20 @@
+version: 0.2
+
+env:
+  variables:
+    ECR_REPO: "<your ECR repo URL>"
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging into ECR...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
+  build:
+    commands:
+      - echo Build started
+      - docker build -t 2048-game .
+      - docker tag 2048-game:latest $ECR_REPO:latest
+  post_build:
+    commands:
+      - echo Pushing image to ECR
+      - docker push $ECR_REPO:latest
