@@ -62,7 +62,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_attach" {
   role       = aws_iam_role.ecs_task_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+  policy_arn = "arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess"
 }
 
 # ECS Task Definition
@@ -158,7 +158,7 @@ resource "aws_codebuild_project" "build" {
 
   source {
     type      = "CODEPIPELINE"
-    buildspec = "buildspec.yml"
+    buildspec = "project-1/2048/buildspec.yml"
   }
 }
 
@@ -196,23 +196,21 @@ resource "aws_codepipeline" "pipeline" {
   }
 
   stage {
-    name = "Source"
-    action {
-      name             = "Source"
-      category         = "Source"
-      owner            = "AWS"
-      provider         = "GitHub"
-      version          = "1"
-      output_artifacts = ["source_output"]
-      configuration = {
-        Owner                = "MOHAMMED0409"  # Replace with your GitHub username
-        Repo                 = ""        # Replace with your repo name
-        BranchName           = "main"
-        OAuthToken           = "YOUR_GITHUB_TOKEN"     # Replace with your GitHub token
-        PollForSourceChanges = false
-      }
+  name = "Source"
+  action {
+    name             = "Source"
+    category         = "Source"
+    owner            = "AWS"
+    provider         = "CodeStarSourceConnection"
+    version          = "1"
+    output_artifacts = ["source_output"]
+    configuration = {
+      ConnectionArn = aws_codestarconnections_connection.github.arn
+      FullRepositoryId = "MOHAMMED0409/cloud-personal-projects"
+      BranchName = "main"
     }
   }
+}
 
   stage {
     name = "Build"
