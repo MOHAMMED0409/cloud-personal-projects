@@ -7,6 +7,3 @@ docker tag 2048-game:latest 779846795398.dkr.ecr.us-east-1.amazonaws.com/2048-ga
 
 # Push to ECR
 docker push 779846795398.dkr.ecr.us-east-1.amazonaws.com/2048-game:latest
-
-
-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
