@@ -1,7 +1,8 @@
 .sass-cache/
 .DS_Store/
-terraform/
-terraform.lock.hcl/
-terraform.tfstate/
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
 notes.txt
-secrets.tfvars/
+secrets.tfvars
