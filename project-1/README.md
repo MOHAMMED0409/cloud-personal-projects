@@ -18,7 +18,7 @@ This project automates the deployment of the classic **2048 Game** using **Docke
 
 ## 📊 Architecture Flow
 
-![CI/CD Flowchart](images/flowchart.png)  
+![CI/CD Flowchart](project-1/image.png)  
 <!-- Replace with the actual path to your image: e.g., `docs/flowchart.png` or hosted link -->
 
 ---
