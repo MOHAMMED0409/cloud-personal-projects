@@ -78,7 +78,7 @@ cd 2048-ci-cd-aws
 
 # Step 4: To cleanup the services
 ./scripts/destroy.sh
-
+```
 ✍️ Author
 Mohammed Khashif
 DevOps & Cloud Engineer
