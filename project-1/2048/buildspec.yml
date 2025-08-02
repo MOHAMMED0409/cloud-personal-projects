@@ -17,6 +17,7 @@ phases:
   build:
     commands:
       - echo Building Docker image...
+      - cd project-1/2048
       - docker build -t game-2048 .
       - docker tag game-2048:latest $ECR_REPO:latest
 
