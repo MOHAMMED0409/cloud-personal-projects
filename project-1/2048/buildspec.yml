@@ -10,18 +10,28 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
+<<<<<<< HEAD
       - echo "Region: $AWS_REGION"
       - echo "Repo: $ECR_REPO"
+=======
+      - echo "$AWS_REGION"
+      - echo "$ECR_REPO"
+>>>>>>> 020b34e52056bd995316001f6f95805c8e66fd8d
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
 
   build:
     commands:
       - echo Building Docker image...
+<<<<<<< HEAD
       - pwd
       - ls -la
       - cd project-1/2048
       - pwd
       - ls -la
+=======
+      - ls -la
+      - cd project-1/2048
+>>>>>>> 020b34e52056bd995316001f6f95805c8e66fd8d
       - docker build -t game-2048 .
       - docker tag game-2048:latest $ECR_REPO:latest
 
