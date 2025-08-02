@@ -1,0 +1,12 @@
+# Authenticate Docker to ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 779846795398.dkr.ecr.us-east-1.amazonaws.com
+
+# Build and Tag image
+docker build -t 2048-game ./project-1/2048/
+docker tag 2048-game:latest 779846795398.dkr.ecr.us-east-1.amazonaws.com/2048-game:latest
+
+# Push to ECR
+docker push 779846795398.dkr.ecr.us-east-1.amazonaws.com/2048-game:latest
+
+
+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
