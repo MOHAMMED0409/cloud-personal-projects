@@ -58,3 +58,8 @@ grep -r "password\|token\|key\|secret" . --exclude-dir=.git
 - **Automate security checks** where possible
 
 These tools will help you maintain consistent, secure, and well-organized projects while avoiding the common pitfalls you encountered!
+
+=====================================
+Alpha Vantage API Key for project-2 |
+06JX1VYRUJQDR6JS                    |
+=====================================
