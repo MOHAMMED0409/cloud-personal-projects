@@ -1,1 +1,0 @@
-alpha_vantage_api_key = "06JX1VYRUJQDR6JS"
