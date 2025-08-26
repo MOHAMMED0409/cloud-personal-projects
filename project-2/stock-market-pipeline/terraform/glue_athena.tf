@@ -28,8 +28,8 @@ resource "aws_glue_catalog_table" "stock_table" {
       name = "timestamp"
       type = "string"
     }
-
-    serde_info {
+  
+  ser_de_info {
       name                  = "json-serde"
       serialization_library = "org.openx.data.jsonserde.JsonSerDe"
     }

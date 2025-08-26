@@ -1,8 +1,8 @@
 resource "aws_lambda_function" "alert" {
-  function_name = "stock_alert"
-  role          = aws_iam_role.lambda_role.arn
-  handler       = "lambda_alert.lambda_handler"
-  runtime       = "python3.9"
+  function_name    = "stock_alert_lambda"
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "lambda_alert.lambda_handler"
+  runtime          = "python3.9"
 
   filename         = "${path.module}/../lambda_functions/lambda_alert.zip"
   source_code_hash = filebase64sha256("${path.module}/../lambda_functions/lambda_alert.zip")
